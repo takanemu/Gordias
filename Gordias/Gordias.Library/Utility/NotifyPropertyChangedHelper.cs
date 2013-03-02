@@ -21,6 +21,7 @@ namespace Gordias.Library.Utility
     using System.Reflection;
     using Castle.DynamicProxy;
     using Gordias.Library.Interfaces;
+    using Gordias.Library.Headquarters;
 
     /// <summary>
     /// NotifyPropertyChangedを自動発行するプロパティクラスを生成する
@@ -80,7 +81,29 @@ namespace Gordias.Library.Utility
                     
                     // アクセサを実行
                     invocation.Proceed();
-                    
+
+                    // プロパティクラスと同名のメソッドを呼び出す
+                    if (invocation.InvocationTarget is TacticsProperty)
+                    {
+                        TacticsProperty pclass = invocation.InvocationTarget as TacticsProperty;
+                        object target = pclass.Parent;
+
+                        System.Type targetType = target.GetType();
+                        MethodInfo[] methods = targetType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+                        foreach (MethodInfo method2 in methods)
+                        {
+                            if (method2.IsDefined(typeof(PropertyAttribute), false))
+                            {
+                                var name = method2.Name;
+
+                                if (propName == name)
+                                {
+                                    method2.Invoke(target, null);
+                                }
+                            }
+                        }
+                    }
                     // アクセサ実行後の値を退避
                     object postValue = info.GetValue(invocation.InvocationTarget, null);
 

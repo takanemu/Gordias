@@ -62,6 +62,7 @@
     <Compile Include="Headquarters\DataLogistics.cs" />
     <Compile Include="Headquarters\EventArgsFactory.cs" />
     <Compile Include="Headquarters\NotificationProvider.cs" />
+    <Compile Include="Headquarters\PropertyAttribute.cs" />
     <Compile Include="Headquarters\Servant.cs" />
     <Compile Include="Headquarters\TacticsCommand.cs" />
     <Compile Include="Headquarters\TacticsProperty.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Interface\ICleanup.cs" />
     <Compile Include="Interface\IRaisePropertyChanged.cs" />
     <Compile Include="Interface\ITacticsCommand.cs" />
+    <Compile Include="Interface\ITacticsProperty.cs" />
     <Compile Include="Interface\IWindowParameter.cs" />
     <Compile Include="Interface\IWindowResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

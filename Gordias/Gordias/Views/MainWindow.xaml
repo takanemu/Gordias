@@ -29,6 +29,11 @@
     </i:Interaction.Triggers>
     
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <CheckBox IsChecked="{Binding Propertys.IsCheck, Mode=TwoWay}" Content="Button Enable"/>
+        <Button Command="{Binding Commands.TestButton, Mode=OneWay}" Grid.Row="1" Content="テスト"/>
     </Grid>
 </Window>

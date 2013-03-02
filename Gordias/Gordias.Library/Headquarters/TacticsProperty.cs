@@ -18,12 +18,16 @@
 namespace Gordias.Library.Headquarters
 {
     using Gordias.Library.Interfaces;
+    using System;
+    using System.Linq.Expressions;
 
     /// <summary>
     /// プロパティ基底クラス
     /// </summary>
     public class TacticsProperty : NotificationProvider, IRaisePropertyChanged
     {
+        public object Parent { get; set; }
+
         /// <summary>
         /// NotifyPropertyChangedイベントを発行する
         /// </summary>

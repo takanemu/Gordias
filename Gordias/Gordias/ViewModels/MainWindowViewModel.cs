@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
-
-using Livet;
-using Livet.Commands;
-using Livet.Messaging;
-using Livet.Messaging.IO;
-using Livet.EventListeners;
-using Livet.Messaging.Windows;
-
-using Gordias.Models;
-
+﻿
 namespace Gordias.ViewModels
 {
-    public class MainWindowViewModel : ViewModel
+    using Livet.Commands;
+
+    using Gordias.Library.Headquarters;
+    using System.Windows;
+
+    #region メインクラス
+    /// <summary>
+    /// メインウインドウビューモデル
+    /// </summary>
+    public class MainWindowViewModel : TacticsViewModel<MainWindowViewModelProperty, MainWindowViewModelCommand>
     {
         /* コマンド、プロパティの定義にはそれぞれ 
          * 
@@ -62,5 +57,52 @@ namespace Gordias.ViewModels
         public void Initialize()
         {
         }
+
+        [Property]
+        private void IsCheck()
+        {
+            this.Commands.TestButton.IsExecute = !this.Commands.TestButton.IsExecute;
+        }
+
+        #region ボタン処理
+        #region Testボタン
+        /// <summary>
+        /// OKボタン処理
+        /// </summary>
+        [Command]
+        private void TestButton()
+        {
+            MessageBox.Show("テスト");
+        }
+        #endregion
+        #endregion
     }
+    #endregion
+
+    #region プロパティクラス
+    /// <summary>
+    /// プロパティクラス
+    /// </summary>
+    public class MainWindowViewModelProperty : TacticsProperty
+    {
+        /// <summary>
+        /// IsCheck
+        /// </summary>
+        public virtual bool IsCheck { get; set; }
+    }
+    #endregion
+
+    #region コマンドクラス
+    /// <summary>
+    /// コマンドクラス
+    /// </summary>
+    public class MainWindowViewModelCommand
+    {
+        /// <summary>
+        /// TestButtonコマンド
+        /// </summary>
+        public TacticsCommand TestButton { get; private set; }
+    }
+    #endregion
+
 }

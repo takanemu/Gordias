@@ -32,7 +32,7 @@ namespace Gordias.Library.Headquarters
     /// <typeparam name="PropertyType">プロパティクラス定義</typeparam>
     /// <typeparam name="CommandType">コマンドクラス定義</typeparam>
     [Serializable]
-    public class TacticsViewModel<PropertyType, CommandType> : ViewModel, ITacticsCommand<CommandType>
+    public class TacticsViewModel<PropertyType, CommandType> : ViewModel, ITacticsCommand<CommandType>, ITacticsProperty<PropertyType>
         where PropertyType : class
         where CommandType : new()
     {
@@ -64,7 +64,13 @@ namespace Gordias.Library.Headquarters
             this.Propertys = NotifyPropertyChangedHelper<PropertyType>.Create();
             this.Commands = new CommandType();
 
+            if (this.Propertys is TacticsProperty)
+            {
+                (this.Propertys as TacticsProperty).Parent = this;
+            }
             CommandAttribute.Construction(this);
+            //PropertyAttribute.Construction(this);
+
             MessageReceiveAttribute.Construction(this, this.EventSweeper);
             LogisticsPropertyChangedAttribute.Construction(this, this.EventSweeper);
         }
