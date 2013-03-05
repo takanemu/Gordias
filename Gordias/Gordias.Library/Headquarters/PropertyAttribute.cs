@@ -18,6 +18,7 @@ namespace Gordias.Library.Headquarters
             var accessers = target.Propertys;
             Type targetType = target.GetType();
             MethodInfo[] methods = targetType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            //MethodInfo[] methods = ReflectionBooster.Instance.GetMethods(target.GetType(), BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
             foreach (MethodInfo method in methods)
             {

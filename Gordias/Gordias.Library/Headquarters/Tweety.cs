@@ -139,6 +139,7 @@ namespace Gordias.Library.Headquarters
         {
             Type type = target.GetType();
             MethodInfo[] methods = type.GetMethods();
+            //MethodInfo[] methods = ReflectionBooster.Instance.GetMethods(target.GetType(), BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
             foreach (MethodInfo method in methods)
             {
@@ -175,6 +176,7 @@ namespace Gordias.Library.Headquarters
         {
             Type t = target.GetType();
             MethodInfo minfo = t.GetMethod(name);
+            //MethodInfo minfo = ReflectionBooster.Instance.GetMethod(target.GetType(), name, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
             MessageReceiveAttribute[] items = (MessageReceiveAttribute[])minfo.GetCustomAttributes(typeof(MessageReceiveAttribute), false);
 
             if (items.Length == 0)

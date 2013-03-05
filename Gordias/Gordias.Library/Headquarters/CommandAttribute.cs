@@ -36,7 +36,8 @@ namespace Gordias.Library.Headquarters
         {
             var commands = target.Commands;
             Type targetType = target.GetType();
-            MethodInfo[] methods = targetType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            //MethodInfo[] methods = targetType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            MethodInfo[] methods = ReflectionBooster.Instance.GetMethods(targetType, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
             foreach (MethodInfo method in methods)
             {
@@ -46,6 +47,7 @@ namespace Gordias.Library.Headquarters
 
                     Type commandsType = commands.GetType();
                     PropertyInfo propertys = commandsType.GetProperty(name);
+                    //PropertyInfo propertys = ReflectionBooster.Instance.GetProperty(commandsType, name, BindingFlags.Public | BindingFlags.Instance);
                     MethodInfo commandMethod = method;
 
                     propertys.SetValue(

@@ -75,6 +75,7 @@ namespace Gordias.Library.Utility
                 if (method.Name.StartsWith("set_"))
                 {
                     PropertyInfo info = invocation.InvocationTarget.GetType().GetProperty(propName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
+                    //PropertyInfo info = ReflectionBooster.Instance.GetProperty(invocation.InvocationTarget.GetType(), propName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
 
                     // アクセサ実行前の値を退避
                     object preValue = info.GetValue(invocation.InvocationTarget, null);
@@ -90,6 +91,7 @@ namespace Gordias.Library.Utility
 
                         System.Type targetType = target.GetType();
                         MethodInfo[] methods = targetType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                        //MethodInfo[] methods = ReflectionBooster.Instance.GetMethods(targetType, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
                         foreach (MethodInfo method2 in methods)
                         {
