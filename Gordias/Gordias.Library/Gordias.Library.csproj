@@ -33,13 +33,22 @@
     <Reference Include="Castle.Core">
       <HintPath>InfrastructureAssemblies\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Livet">
-      <HintPath>..\Gordias\InfrastructureAssemblies\Livet.dll</HintPath>
+    <Reference Include="Livet, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b0b1d3f711ef38cb, processorArchitecture=MSIL">
+      <HintPath>..\packages\LivetCask.1.1.0.0\lib\net45\Livet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\LivetCask.1.1.0.0\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\LivetCask.1.1.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,8 +69,6 @@
     <Compile Include="Executors\SerialExecutor.cs" />
     <Compile Include="Headquarters\CommandAttribute.cs" />
     <Compile Include="Headquarters\DataLogistics.cs" />
-    <Compile Include="Headquarters\EventArgsFactory.cs" />
-    <Compile Include="Headquarters\NotificationProvider.cs" />
     <Compile Include="Headquarters\PropertyAttribute.cs" />
     <Compile Include="Headquarters\ReflectionBooster.cs" />
     <Compile Include="Headquarters\Servant.cs" />
@@ -81,6 +88,9 @@
     <Compile Include="Utility\EventAggregator.cs" />
     <Compile Include="Utility\FileUtility.cs" />
     <Compile Include="Utility\NotifyPropertyChangedHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

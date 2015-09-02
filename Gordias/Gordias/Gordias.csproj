@@ -35,19 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Livet">
+    <Reference Include="Livet, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b0b1d3f711ef38cb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>InfrastructureAssemblies\Livet.dll</HintPath>
+      <HintPath>..\packages\LivetCask.1.1.0.0\lib\net45\Livet.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Expression.Interactions">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>InfrastructureAssemblies\Microsoft.Expression.Interactions.dll</HintPath>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\LivetCask.1.1.0.0\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Interactivity">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>InfrastructureAssemblies\System.Windows.Interactivity.dll</HintPath>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\LivetCask.1.1.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -99,18 +100,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="InfrastructureAssemblies\Design\Livet.Design.dll" />
-    <Content Include="InfrastructureAssemblies\Livet.dll" />
-    <Content Include="InfrastructureAssemblies\Livet.XML" />
-    <Content Include="InfrastructureAssemblies\Microsoft.Expression.Interactions.dll" />
-    <Content Include="InfrastructureAssemblies\System.Windows.Interactivity.dll" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gordias.Library\Gordias.Library.csproj">

@@ -27,7 +27,7 @@ namespace Gordias.Library.Headquarters
     /// <typeparam name="PropertyType">プロパティクラス</typeparam>
     /// <typeparam name="CommandType">コマンドクラス</typeparam>
     [Serializable]
-    public abstract class ViewModelArchetype<PropertyType, CommandType> : NotificationProvider, IDisposable, ITacticsCommand<CommandType>
+    public abstract class ViewModelArchetype<PropertyType, CommandType> : Livet.NotificationObject, IDisposable, ITacticsCommand<CommandType>
         where PropertyType : class
         where CommandType : new()
     {

@@ -22,6 +22,7 @@ namespace Gordias.Library.Headquarters
     using System.Threading;
     using System.Windows.Input;
     using Livet.Commands;
+    using System.Collections.Concurrent;
 
     /// <summary>
     /// ViewModelコマンドクラス
@@ -37,6 +38,13 @@ namespace Gordias.Library.Headquarters
         /// 実行可能フラグ
         /// </summary>
         private bool isExecute;
+
+        private static ConcurrentDictionary<string, PropertyChangedEventArgs> _propertyChangedEventArgsDictionary = new ConcurrentDictionary<string, PropertyChangedEventArgs>();
+
+        public static PropertyChangedEventArgs GetPropertyChangedEventArgs(string propertyName)
+        {
+            return _propertyChangedEventArgsDictionary.GetOrAdd(propertyName, name => new PropertyChangedEventArgs(name));
+        }
 
         /// <summary>
         /// コンストラクタ
@@ -110,7 +118,7 @@ namespace Gordias.Library.Headquarters
             
             if (handler != null)
             {
-                handler(this, EventArgsFactory.GetPropertyChangedEventArgs("CanExecute"));
+                handler(this, GetPropertyChangedEventArgs("CanExecute"));
             }
         }
 

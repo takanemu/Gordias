@@ -24,7 +24,7 @@ namespace Gordias.Library.Headquarters
     /// <summary>
     /// プロパティ基底クラス
     /// </summary>
-    public class TacticsProperty : NotificationProvider, IRaisePropertyChanged
+    public class TacticsProperty : Livet.NotificationObject, IRaisePropertyChanged
     {
         public object Parent { get; set; }
 
